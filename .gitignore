@@ -1,0 +1,44 @@
+# Logs
+log
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+
+# Images filesync directory
+image/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+
+# Customers Dump
+hardcode/customers.json
+
+# Dotenv environment variables file
+.env
+
+# Config
+config.json
+
+# Idea
+.idea
+
+# VisualStudio / Code
+.vs
+.vscode

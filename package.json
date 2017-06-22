@@ -1,0 +1,17 @@
+{
+  "name": "npm-outdated",
+  "version": "1.0.0",
+  "description": "Проверка версий пакета в github-репозитории",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evgeni Zharkov",
+  "license": "GPLv3",
+  "dependencies": {
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "ws": "^3.0.0"
+  }
+}
