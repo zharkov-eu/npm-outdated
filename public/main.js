@@ -3,24 +3,35 @@
 const inputUrl = document.querySelector('#github-url')
 const urlSubmit = document.querySelector('#url-submit')
 const processing = document.querySelector('#processing')
-const upToDateUl = document.querySelector('#uptodate').querySelector('ul')
-const minorOutateUl = document.querySelector('#minoroutdate').querySelector('ul')
-const majorOutdateUl = document.querySelector('#majoroutdate').querySelector('ul')
-const errorDateUl = document.querySelector('#errordate').querySelector('ul')
+const upToDateTable = document.querySelector('#uptodate').querySelector('table')
+const minorOutateTable = document.querySelector('#minoroutdate').querySelector('table')
+const majorOutdateTable = document.querySelector('#majoroutdate').querySelector('table')
+const errorDateTable = document.querySelector('#errordate').querySelector('table')
 
 function validURL (str) {
   var pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/i
   return pattern.test(str)
 }
 
+function clearTable (element) {
+  let heading = element.querySelector('tr')
+  let rows = element.querySelectorAll('tr')
+  Array.prototype.forEach.call(rows, function (node) {
+    node.parentNode.removeChild(node)
+  })
+  element.appendChild(heading)
+}
+
 inputUrl.addEventListener('keyup', (e) => {
-  if (e.keyCode === 13) return
-  processing.innerHTML = ''
-  inputUrl.classList.remove('error')
-  upToDateUl.innerHTML = ''
-  minorOutateUl.innerHTML = ''
-  majorOutdateUl.innerHTML = ''
-  errorDateUl.innerHTML = ''
+  if (e.keyCode !== 13) {
+    processing.innerHTML = ''
+    inputUrl.classList.remove('error')
+  }
+  clearTable(upToDateTable)
+  clearTable(minorOutateTable)
+  clearTable(majorOutdateTable)
+  errorDateTable.parentNode.style.display = 'none'
+  clearTable(errorDateTable)
 })
 
 urlSubmit.addEventListener('click', (e) => {
@@ -47,20 +58,21 @@ urlSubmit.addEventListener('click', (e) => {
     } catch (error) {
       processing.innerHTML = 'Возникла ошибка связи с сервером, пожалуйста, повторите запрос'
     }
-    let li = document.createElement('li')
-    li.innerHTML = `<span class='name'>${data.name}</span><span class="version">${data.version}</span><span class="latest">${data.latest}</span>`
+    let tr = document.createElement('tr')
+    tr.innerHTML = `<td>${data.name}</td><td class="center">${data.version}</td><td class="center">${data.latest}</td>`
     switch (data.status) {
       case 'update':
-        upToDateUl.appendChild(li)
+        upToDateTable.appendChild(tr)
         break
       case 'minor':
-        minorOutateUl.appendChild(li)
+        minorOutateTable.appendChild(tr)
         break
       case 'major':
-        majorOutdateUl.appendChild(li)
+        majorOutdateTable.appendChild(tr)
         break
       case 'error':
-        errorDateUl.appendChild(li)
+        errorDateTable.parentNode.style.display = 'block'
+        errorDateTable.appendChild(tr)
         break
     }
   }

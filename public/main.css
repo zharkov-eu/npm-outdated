@@ -1,6 +1,139 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
+
+body {
+  text-align: center;
+}
+
+h1 {
+  margin: 1.5em 0 1em;
+  color: #656565;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  width: 575px;
+}
+
+form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#github-url {
+  display: block;
+  float: left;
+  width: 450px;
+  margin: 0 auto;
+  color: #353535;
+  padding: .5em .25em .5em 1em;
+  font-size: 1.15em;
+  border: 3px solid rgb(32, 171, 180);
+}
+
+#github-url:hover {
+  box-shadow: none;
+  border: 3px solid rgb(32, 171, 180);
+}
+
+#url-submit {
+  color: #fff;
+  display: block;
+  padding: .5em .75em;
+  width: 125px;
+  font-size: 1.15em;
+  font-weight: 600;
+  background: rgb(32, 171, 180);
+  border: 3px solid rgb(32, 171, 180);
+  border-left: none;
+}
+
 .result span {
   margin: 0 2em;
+}
+
+#processing {
+  display: block;
+  margin: .5em 0 .5em;
+  color: #757575;
+  font-size: .9em;
+}
+
+#uptodate,
+#minoroutdate,
+#majoroutdate {
+  float: left;
+  width: 33.33%;
+  padding: 0 1em;
+}
+
+#uptodate table,
+#minoroutdate table,
+#majoroutdate table,
+#errordate table {
+  width: 100%;
+}
+
+table .center {
+  text-align: center;
+}
+
+#uptodate td,
+#minoroutdate td,
+#majoroutdate td,
+#errordate td {
+  color: #252525;
+  font-size: .9em;
+  padding: .15em 0 .15em .25em;
+}
+
+#uptodate table th {
+  background-color: #11aa11;
+  color: #fff;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  width: 33.3%;
+}
+#uptodate table tr:first-child {
+  border: 1px solid #11aa11;
+}
+
+#minoroutdate table th {
+  background-color: #bbaa11;
+  color: #fff;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  width: 33.3%;
+}
+
+#majoroutdate table th {
+  background-color: #aa1111;
+  color: #fff;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  width: 33.3%;
+}
+
+#majoroutdate:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#errordate {
+  margin: 0 auto;
+  width: 33.3%;
+}
+
+#errordate table th {
+  background-color: #aa1111;
+  color: #fff;
+  color: #fff;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  width: 33.3%;
 }

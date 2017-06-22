@@ -5,31 +5,52 @@
     <link rel="stylesheet" type="text/css" href="./main.css"/>
   </head>
   <body>
-    <h1>Проверка версий пакета в GitHub репозитории</h1>
+    <h1>Проверка версий пакетов<br/>в GitHub репозитории</h1>
     <form>
       <input id="github-url" type="text" placeholder="https://github.com/npm/npm"/>
       <input id="url-submit" type="submit"/>
+    </form>
     <span id="processing"></span>
     <div class="result">
       <div id="uptodate">
         <h3>Актуальные зависимости</h3>
-        <ul>
-        </ul>
+        <table>
+          <tr>
+            <th>Пакет</th>
+            <th>В репозитории</th>
+            <th>Актуальная</th>
+          </tr>
+        </table>
       </div>
       <div id="minoroutdate">
         <h3>Имеются minor-обновления</h3>
-        <ul>
-        </ul>
+        <table>
+          <tr>
+            <th>Пакет</th>
+            <th>В репозитории</th>
+            <th>Актуальная</th>
+          </tr>
+        </table>
       </div>
       <div id="majoroutdate">
         <h3>Имеются major-обновления</h3>
-        <ul>
-        </ul>
+        <table>
+          <tr>
+            <th>Пакет</th>
+            <th>В репозитории</th>
+            <th>Актуальная</th>
+          </tr>
+        </table>
       </div>
-      <div id="errordate">
+      <div id="errordate" style="display: none">
         <h3>При обработке следующих пакетов произошли ошибки</h3>
-        <ul>
-        </ul>
+        <table>
+          <tr>
+            <th>Пакет</th>
+            <th>В репозитории</th>
+            <th>Актуальная</th>
+          </tr>
+        </table>
       </div>
     </div>
     <script src="./main.js"></script>
