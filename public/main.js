@@ -17,6 +17,10 @@ inputUrl.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) return
   processing.innerHTML = ''
   inputUrl.classList.remove('error')
+  upToDateUl.innerHTML = ''
+  minorOutateUl.innerHTML = ''
+  majorOutdateUl.innerHTML = ''
+  errorDateUl.innerHTML = ''
 })
 
 urlSubmit.addEventListener('click', (e) => {
